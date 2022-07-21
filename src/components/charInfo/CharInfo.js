@@ -13,7 +13,7 @@ const CharInfo = (props) => {
 
     const [char, setChar] = useState(null);
 
-    const {loading, error, getCharacter, clearError} = useMarvelService();
+    const { loading, error, getCharacter, clearError } = useMarvelService();
 
     useEffect(() => {
         updateChar();
@@ -28,7 +28,7 @@ const CharInfo = (props) => {
             return;
         }
         clearError();
-            getCharacter(charId)
+        getCharacter(charId)
             .then(onCharLoaded)
     }
 
@@ -104,3 +104,18 @@ CharInfo.propTypes = {
 }
 
 export default CharInfo;
+
+const lines = 5;
+let result = '';
+
+for (let i = 0; i <= lines; i++) {
+    for (let j = 0; j < lines - i; j++) {
+        result += " ";
+    }
+    for (let j = 0; j < 2 * i + 1; j++) {
+        result += "*";
+    }
+    result += "\n";
+}
+
+console.log(result)
