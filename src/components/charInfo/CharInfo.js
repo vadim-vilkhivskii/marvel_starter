@@ -16,8 +16,11 @@ const CharInfo = (props) => {
     const { loading, error, getCharacter, clearError } = useMarvelService();
 
     useEffect(() => {
+        
         updateChar();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.charId])
+    
 
 
 
@@ -86,7 +89,7 @@ const View = ({ char }) => {
                 {comics.length > 0 ? null : 'There is no comics with this character'}
                 {
                     comics.map((item, i) => {
-                        if (i > 9) return;
+                        if (i > 9) return null;
                         return (
                             <li key={i} className="char__comics-item">
                                 {item.name}
@@ -105,17 +108,3 @@ CharInfo.propTypes = {
 
 export default CharInfo;
 
-const lines = 5;
-let result = '';
-
-for (let i = 0; i <= lines; i++) {
-    for (let j = 0; j < lines - i; j++) {
-        result += " ";
-    }
-    for (let j = 0; j < 2 * i + 1; j++) {
-        result += "*";
-    }
-    result += "\n";
-}
-
-console.log(result)
